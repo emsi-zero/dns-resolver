@@ -35,7 +35,7 @@ func main() {
 
 	addr := net.UDPAddr{
 		Port: 5300,
-		IP:   net.ParseIP("127.0.0.1"),
+		IP:   net.ParseIP("0.0.0.0"),
 	}
 
 	conn, err := net.ListenUDP("udp", &addr)
