@@ -97,7 +97,7 @@ func HandleDNSQuery(conn *net.UDPConn, clientAddr *net.UDPAddr, buffer []byte, d
 		}
 	}
 
-	requestDuration.WithLabelValues("requestDuration").Observe(float64(time.Since(startTime).Seconds()))
+	requestDuration.WithLabelValues("success").Observe(float64(time.Since(startTime).Seconds()))
 }
 func buildDNSResponse(query []byte, ip net.IP) []byte {
 	response := make([]byte, 512)

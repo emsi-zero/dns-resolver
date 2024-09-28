@@ -51,10 +51,11 @@ func main() {
 		n, clientAddr, err := conn.ReadFromUDP(buffer)
 		if err != nil {
 			log.Printf("Error receiving UDP packet: %v", err)
+			dnsRequests.WithLabelValues("failed").Inc()
 			continue
 		}
 
-		dnsRequests.WithLabelValues("requests").Inc()
+		dnsRequests.WithLabelValues("received").Inc()
 		// Spawn a new goroutine to handle the DNS query concurrently
 		go dns.HandleDNSQuery(conn, clientAddr, buffer[:n], dnsCache)
 	}
