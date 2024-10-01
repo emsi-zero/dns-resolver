@@ -28,7 +28,7 @@ func main() {
 
 	http.Handle("/metrics", promhttp.Handler())
 	go func() {
-		log.Fatal(http.ListenAndServe(":2112", nil))
+		log.Fatal(http.ListenAndServe("0.0.0.0:2112", nil))
 	}()
 
 	dnsCache := dns.NewDNSCache()

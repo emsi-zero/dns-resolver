@@ -24,7 +24,7 @@ var (
 )
 
 func RequestDurationMetrics() {
-	prometheus.Register(requestDuration)
+	prometheus.MustRegister(requestDuration)
 }
 
 func queryUpstreamDNS(query []byte) ([]byte, error) {

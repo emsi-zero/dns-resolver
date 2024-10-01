@@ -1,4 +1,7 @@
 scrape_configs:
-  - job_name: 'dns_server'
+  - job_name: 'dns-resolver'
+  
+    scrape_interval: 15s
+    
     static_configs:
-      - targets: ['dns-server:2112']
+      - targets: ['dns-resolver:2112']
